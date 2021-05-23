@@ -1,0 +1,50 @@
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+numBuffersRemaining=13
+subscribe() called
+request() called with 1
+request() called with 1
+request() called with 1
+request() called with 1
+request() called with 1
+request() called with 1
+request() called with 1
+request() called with 1
+request() called with 1
+request() called with 1
+request() called with 1
+request() called with 1
+request() called with 1
+request() called with 1
+Calling subscriber.onComplete()
+Publisher Thread: finishing...
+Publisher thread finished
+Exception in thread "main" java.io.IOException: java.io.IOException: java.util.concurrent.ExecutionException: software.amazon.awssdk.services.s3.model.S3Exception: You must provide the Content-Length HTTP header. (Service: S3, Status Code: 411, Request ID: 1VRGVWATVF4GQG1C, Extended Request ID: HgcwPPS+hX7RqOVI5XVzPoUBlXk+JVm0HlSNn9dkv127Cwf/9v5q6tb/bmqgcqkl1DzmSY8Xdys=)
+	at com.mycompany.test.StreamUpload.waitForCompletion(StreamUpload.java:67)
+	at com.mycompany.test.StreamUpload.main(StreamUpload.java:129)
+Caused by: java.io.IOException: java.util.concurrent.ExecutionException: software.amazon.awssdk.services.s3.model.S3Exception: You must provide the Content-Length HTTP header. (Service: S3, Status Code: 411, Request ID: 1VRGVWATVF4GQG1C, Extended Request ID: HgcwPPS+hX7RqOVI5XVzPoUBlXk+JVm0HlSNn9dkv127Cwf/9v5q6tb/bmqgcqkl1DzmSY8Xdys=)
+	at com.mycompany.test.StreamUpload.waitForCompletion(StreamUpload.java:64)
+	... 1 more
+Caused by: java.util.concurrent.ExecutionException: software.amazon.awssdk.services.s3.model.S3Exception: You must provide the Content-Length HTTP header. (Service: S3, Status Code: 411, Request ID: 1VRGVWATVF4GQG1C, Extended Request ID: HgcwPPS+hX7RqOVI5XVzPoUBlXk+JVm0HlSNn9dkv127Cwf/9v5q6tb/bmqgcqkl1DzmSY8Xdys=)
+	at java.util.concurrent.CompletableFuture.reportGet(CompletableFuture.java:357)
+	at java.util.concurrent.CompletableFuture.get(CompletableFuture.java:1908)
+	at com.mycompany.test.StreamUpload.waitForCompletion(StreamUpload.java:60)
+	... 1 more
+Caused by: software.amazon.awssdk.services.s3.model.S3Exception: You must provide the Content-Length HTTP header. (Service: S3, Status Code: 411, Request ID: 1VRGVWATVF4GQG1C, Extended Request ID: HgcwPPS+hX7RqOVI5XVzPoUBlXk+JVm0HlSNn9dkv127Cwf/9v5q6tb/bmqgcqkl1DzmSY8Xdys=)
+	at software.amazon.awssdk.protocols.xml.internal.unmarshall.AwsXmlPredicatedResponseHandler.handleErrorResponse(AwsXmlPredicatedResponseHandler.java:156)
+	at software.amazon.awssdk.protocols.xml.internal.unmarshall.AwsXmlPredicatedResponseHandler.handleResponse(AwsXmlPredicatedResponseHandler.java:106)
+	at software.amazon.awssdk.protocols.xml.internal.unmarshall.AwsXmlPredicatedResponseHandler.handle(AwsXmlPredicatedResponseHandler.java:84)
+	at software.amazon.awssdk.protocols.xml.internal.unmarshall.AwsXmlPredicatedResponseHandler.handle(AwsXmlPredicatedResponseHandler.java:42)
+	at software.amazon.awssdk.core.internal.handler.BaseClientHandler.lambda$successTransformationResponseHandler$6(BaseClientHandler.java:270)
+	at software.amazon.awssdk.core.internal.http.async.AsyncResponseHandler.lambda$prepare$0(AsyncResponseHandler.java:89)
+	at java.util.concurrent.CompletableFuture.uniCompose(CompletableFuture.java:966)
+	at java.util.concurrent.CompletableFuture$UniCompose.tryFire(CompletableFuture.java:940)
+	at java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:488)
+	at java.util.concurrent.CompletableFuture.complete(CompletableFuture.java:1975)
+	at software.amazon.awssdk.core.internal.http.async.AsyncResponseHandler$BaosSubscriber.onComplete(AsyncResponseHandler.java:132)
+	at java.util.Optional.ifPresent(Optional.java:159)
+	at software.amazon.awssdk.http.crt.internal.AwsCrtResponseBodyPublisher.completeSubscriptionExactlyOnce(AwsCrtResponseBodyPublisher.java:216)
+	at software.amazon.awssdk.http.crt.internal.AwsCrtResponseBodyPublisher.publishToSubscribers(AwsCrtResponseBodyPublisher.java:281)
+	at software.amazon.awssdk.http.crt.internal.AwsCrtAsyncHttpStreamAdapter.onResponseComplete(AwsCrtAsyncHttpStreamAdapter.java:114)
+	at software.amazon.awssdk.crt.http.HttpStreamResponseHandlerNativeAdapter.onResponseComplete(HttpStreamResponseHandlerNativeAdapter.java:33)
